@@ -6,7 +6,8 @@ namespace first_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Stranger, welcome to (name of world)!\nWho are you? ");
+            Console.WriteLine("Hello Stranger, welcome to (name of world)!\n" +
+                              "My name is (NPC name) and Who are you? ");
             Console.WriteLine("Name: ");
             String name = Console.ReadLine();
 
