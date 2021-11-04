@@ -9,6 +9,7 @@ namespace first_game
             Console.WriteLine("Hello Stranger, welcome to (name of world)!\n" +
                               "My name is (NPC name) and Who are you? ");
             Console.WriteLine("Name: ");
+            
             String name = Console.ReadLine();
 
             if (name.ToLower() == "stranger")
@@ -23,6 +24,8 @@ namespace first_game
             {
                 Console.WriteLine($"So welcome {name} in ours small village.");
             }
+        
+    
             
             Console.WriteLine($"Tel me {name} from where are you cumming to us?");
             Console.WriteLine("Origin: ");
@@ -37,6 +40,8 @@ namespace first_game
             {
                 Console.WriteLine($"I newer hear abouth {origin} it must be small place just like ouers vilage");
             }
+            
+            //String map = 
             
             Console.WriteLine("pres any key to contine...");
             Console.ReadKey(true);
