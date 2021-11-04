@@ -24,8 +24,6 @@ namespace first_game
             {
                 Console.WriteLine($"So welcome {name} in ours small village.");
             }
-        
-    
             
             Console.WriteLine($"Tel me {name} from where are you cumming to us?");
             Console.WriteLine("Origin: ");
@@ -41,10 +39,70 @@ namespace first_game
                 Console.WriteLine($"I newer hear abouth {origin} it must be small place just like ouers vilage");
             }
             
-            //String map = 
-            
             Console.WriteLine("pres any key to contine...");
             Console.ReadKey(true);
+            Console.Clear();
+            
+            String[] map =
+            {
+                "        |  #########  |",
+                "        |  #    #  #  |",
+                "        |  #   ##  #  |",
+                "        |  #    #  #  |",
+                "        |  #    #  #  |",
+                "        |  #       #  |",
+                "        |  #    #  #  |",
+                "        |  #########  |"
+            };
+
+            String[] scroll =
+            {
+                "      _______________",
+                " ()==(              (@==()",
+                "      '______________'|",
+                "        |             |",
+                "      __)_____________|",
+                " ()==(               (@==()",
+                "      '--------------'"
+            };
+
+            for (int i = 0; i < scroll.Length/2+1 ; i++)
+            {
+                Console.WriteLine(scroll[i]);
+            }
+            
+            foreach (String row in map)
+            {
+                Console.WriteLine(row);
+                
+            }
+            
+            for (int i = scroll.Length/2+1; i < scroll.Length ; i++)
+            {
+                Console.WriteLine(scroll[i]);
+            }
+
+            /*
+             #########
+             #    #  #
+             #   ##  #
+             #    #  # 
+             #    #  #
+             #       #
+             #    #  #
+             #########
+             
+         _______________
+    ()==(              (@==()
+         '______________'|
+           |             |
+           |             |
+         __)_____________|
+    ()==(               (@==()
+         '--------------'
+             */
+
+
         }
     }
 }
