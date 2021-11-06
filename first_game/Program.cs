@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace first_game
 {
@@ -61,7 +63,7 @@ namespace first_game
                 " ()==(              (@==()",
                 "      '______________'|",
                 "        |             |",
-                "      __)_____________|",
+                "      __)_____________|    ",
                 " ()==(               (@==()",
                 "      '--------------'"
             };
@@ -70,39 +72,23 @@ namespace first_game
             {
                 Console.WriteLine(scroll[i]);
             }
-            
+
+            int mapRowsPositioning = Console.CursorTop;
+
             foreach (String row in map)
             {
+                Console.SetCursorPosition(0, mapRowsPositioning);
                 Console.WriteLine(row);
                 
+                    
+                for (int i = scroll.Length / 2+1; i < scroll.Length ; i++)
+                {
+                    Console.WriteLine(scroll[i]);
+                            
+                }
+                mapRowsPositioning++;
+                Thread.Sleep(700);
             }
-            
-            for (int i = scroll.Length/2+1; i < scroll.Length ; i++)
-            {
-                Console.WriteLine(scroll[i]);
-            }
-
-            /*
-             #########
-             #    #  #
-             #   ##  #
-             #    #  # 
-             #    #  #
-             #       #
-             #    #  #
-             #########
-             
-         _______________
-    ()==(              (@==()
-         '______________'|
-           |             |
-           |             |
-         __)_____________|
-    ()==(               (@==()
-         '--------------'
-             */
-
-
         }
     }
 }
