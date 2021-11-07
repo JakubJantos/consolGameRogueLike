@@ -68,7 +68,9 @@ namespace first_game
                 "      '--------------'"
             };
 
-            for (int i = 0; i < scroll.Length/2+1 ; i++)
+            int halfLenghtOfScroll = scroll.Length / 2+1;
+
+            for (int i = 0; i < halfLenghtOfScroll ; i++)
             {
                 Console.WriteLine(scroll[i]);
             }
@@ -81,7 +83,7 @@ namespace first_game
                 Console.WriteLine(row);
                 
                     
-                for (int i = scroll.Length / 2+1; i < scroll.Length ; i++)
+                for (int i = halfLenghtOfScroll; i < scroll.Length ; i++)
                 {
                     Console.WriteLine(scroll[i]);
                             
