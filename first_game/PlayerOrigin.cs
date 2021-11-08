@@ -4,18 +4,19 @@ namespace first_game
 {
     public class PlayerOrigin
     {
+        //getting the player input and assign it to the variable
         String origin = Console.ReadLine();
 
         public void Origins()
         {
-            if (string.IsNullOrWhiteSpace(origin))
+            if (string.IsNullOrWhiteSpace(origin)) // checking if player dont insert any origin then print a proper message
             {
                 origin = "Nowhere";
-                Console.WriteLine($"You dont wont to tell me? ok then I'll say  you come from {origin}");
+                Console.WriteLine($"\nYou dont wont to tell me? ok then I'll say  you come from '{origin}'");
             }
-            else
+            else // if player insert any other text it'll be consider as player origin
             {
-                Console.WriteLine($"I newer hear abouth {origin} it must be small place just like ouers vilage");
+                Console.WriteLine($"\nI newer hear about '{origin}' it must be small place just like ours village");
             }
         }
     }

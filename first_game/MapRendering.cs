@@ -7,7 +7,7 @@ namespace first_game
     {
         public void mapRender()
         {
-            String[] map =
+            String[] map =  //proper map in string array maybe change it to a random generated maps
             {
                 "        |  #########  |",
                 "        |  #    #  #  |",
@@ -19,7 +19,7 @@ namespace first_game
                 "        |  #########  |"
             };
 
-            String[] scroll =
+            String[] scroll = 
             {
                 "      _______________",
                 " ()==(              (@==()",
@@ -30,28 +30,29 @@ namespace first_game
                 "      '--------------'"
             };
 
-            int halfLenghtOfScroll = scroll.Length / 2+1;
+            int halfLenghtOfScroll = scroll.Length / 2+1; // getting half of scroll array and add it to variable
 
+            //loop to print out first half of scroll graphics
             for (int i = 0; i < halfLenghtOfScroll ; i++)
             {
                 Console.WriteLine(scroll[i]);
             }
 
-            int mapRowsPositioning = Console.CursorTop;
+            int mapRowsPositioning = Console.CursorTop;//getting the value of position of cursor in console
 
+            //printing a map
             foreach (String row in map)
             {
                 Console.SetCursorPosition(0, mapRowsPositioning);
                 Console.WriteLine(row);
                 
-                    
+                // printing a down half of scroll graphics    
                 for (int i = halfLenghtOfScroll; i < scroll.Length ; i++)
                 {
                     Console.WriteLine(scroll[i]);
-                            
                 }
-                mapRowsPositioning++;
-                Thread.Sleep(700);
+                mapRowsPositioning++; // increasing a console cursor to make down part of scroll always visible 
+                Thread.Sleep(400); //sleep for a while to get cool effect of rolling out a scroll
             }
             
         }
