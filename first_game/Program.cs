@@ -36,6 +36,16 @@ namespace first_game
             //calling the method from Map rendering class
             MapRendering mapRendering = new MapRendering();
             mapRendering.mapRender();
+
+            Console.ReadKey(true);
+            Console.Clear();
+
+            foreach (String row in mapRendering.getLevel())
+            {
+                Console.WriteLine(row);
+            }
+
+            
         }
     }
 }
