@@ -57,8 +57,7 @@ namespace first_game
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
                 Console.SetCursorPosition(playerColumn, playerRow);
-                String curentRow = mapRendering.getLevel()[playerRow];
-                char curentCel = curentRow[playerColumn];
+                char curentCel = mapRendering.getLevel()[playerRow][playerColumn];
                 Console.Write(curentCel);
 
                 int targetColumn = playerColumn;
@@ -81,16 +80,25 @@ namespace first_game
                 {
                     targetColumn = playerColumn - 1;
                 }
+                else
+                {
+                    break;
+                }
 
-                if (targetRow >= 0 && targetRow < mapRendering.getLevel().Length)
+                char xWallDetected = mapRendering.getLevel()[playerRow][targetColumn];
+                char yWallDetected = mapRendering.getLevel()[targetRow][playerColumn];
+
+                if (targetRow >= 0 && targetRow < mapRendering.getLevel().Length && yWallDetected != '#')
                 {
                     playerRow = targetRow;
                 }
 
-                if (targetColumn >= 0 && targetColumn < mapRendering.getLevel()[playerRow].Length){   
+                if (targetColumn >= 0 && targetColumn < mapRendering.getLevel()[playerRow].Length && xWallDetected != '#'){   
                     
                   playerColumn = targetColumn;
                 }
+
+
             }
             Console.SetCursorPosition(0,mapRendering.getLevel().Length);
         }
