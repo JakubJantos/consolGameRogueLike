@@ -9,6 +9,7 @@ namespace first_game
 
         public void Origins()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             if (string.IsNullOrWhiteSpace(origin)) // checking if player dont insert any origin then print a proper message
             {
                 origin = "Nowhere";
@@ -18,6 +19,7 @@ namespace first_game
             {
                 Console.WriteLine($"\nI newer hear about '{origin}' it must be small place just like ours village");
             }
+            Console.ResetColor();
         }
     }
 }

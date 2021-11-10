@@ -8,14 +8,14 @@ namespace first_game
     {
         String[] level = //proper map in string array maybe change it to a random generated maps
         {
-            "        |  #########  |",
-            "        |  #    #  #  |",
-            "        |  #   ##  #  |",
-            "        |  #    #  #  |",
-            "        |  #    #  #  |",
-            "        |  #       #  |",
-            "        |  #    #  #  |",
-            "        |  #########  |"
+            "#########",
+            "#    #  #",
+            "#   ##  #",
+            "#    #  #",
+            "#    #  #",
+            "#       #",
+            "#    #  #",
+            "#########"
         };
 
         String[] scroll = 
@@ -35,7 +35,7 @@ namespace first_game
             //loop to print out first half of scroll graphics
             for (int i = 0; i < halfLenghtOfScroll ; i++)
             {
-                Console.WriteLine(scroll[i]);
+                Console.WriteLine($"{scroll[i]}");
             }
 
             int mapRowsPositioning = Console.CursorTop;//getting the value of position of cursor in console
@@ -44,7 +44,7 @@ namespace first_game
             foreach (String row in level)
             {
                 Console.SetCursorPosition(0, mapRowsPositioning);
-                Console.WriteLine(row);
+                Console.WriteLine($"        |  {row}  |");
                 
                 // printing a down half of scroll graphics    
                 for (int i = halfLenghtOfScroll; i < scroll.Length ; i++)
