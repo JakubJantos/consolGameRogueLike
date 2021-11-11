@@ -49,6 +49,7 @@ namespace first_game
             playerMovment.Move();
             
             Console.SetCursorPosition(0,mapRendering.getLevel().Length);
+            
         }
     }
 }
