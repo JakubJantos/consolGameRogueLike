@@ -6,15 +6,19 @@ namespace first_game
     {
         static void Main(string[] args)
         {
+            PlayersName playersName = new PlayersName();
+            PlayerOrigin playerOrigin = new PlayerOrigin();
+            MapRendering mapRendering = new MapRendering();
+            PlayerMovment playerMovment = new PlayerMovment();
+            
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\nHello Stranger, welcome to (name of world)!\n" +
+            Console.WriteLine("\nHello Stranger, welcome to ROU SHA!\n" +
                               "My name is (NPC name) and Who are you?");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nwrite your name here: ");
             Console.ResetColor();
 
             //calling the method from PlayerName class
-            PlayersName playersName = new PlayersName();
             playersName.names();
 
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -24,7 +28,6 @@ namespace first_game
             Console.ResetColor();
 
             // calling the method from PlayerOrigin class
-            PlayerOrigin playerOrigin = new PlayerOrigin();
             playerOrigin.Origins();
 
             Console.ForegroundColor = ConsoleColor.Red;
@@ -33,70 +36,18 @@ namespace first_game
             Console.ReadKey(true);
             Console.Clear();
 
-            //calling the method from Map rendering class
-            MapRendering mapRendering = new MapRendering();
+            //calling the method that render map
             mapRendering.MapRender(true);
 
             Console.ReadKey(true);
             Console.Clear();
 
+            //calling the method that render level
             mapRendering.MapRender(false);
-
-            int playerColumn = 3;
-            int playerRow = 2;
-            String player = "@";
             
-            while (true)
-            {
-                Console.SetCursorPosition(playerColumn, playerRow);
-                Console.Write(player);
-
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-
-                Console.SetCursorPosition(playerColumn, playerRow);
-                char curentCel = mapRendering.getLevel()[playerRow][playerColumn];
-                Console.Write(curentCel);
-
-                int targetColumn = playerColumn;
-                int targetRow = playerRow;
-
-                if (keyInfo.Key == ConsoleKey.UpArrow)
-                {
-                    targetRow = playerRow - 1;
-                }
-                else if (keyInfo.Key == ConsoleKey.DownArrow)
-                {
-                    targetRow = playerRow +1;
-                }
-                else if (keyInfo.Key == ConsoleKey.RightArrow)
-                {
-                    targetColumn = playerColumn + 1;
-
-                }
-                else if (keyInfo.Key == ConsoleKey.LeftArrow)
-                {
-                    targetColumn = playerColumn - 1;
-                }
-                else
-                {
-                    break;
-                }
-
-                char xWallDetected = mapRendering.getLevel()[playerRow][targetColumn];
-                char yWallDetected = mapRendering.getLevel()[targetRow][playerColumn];
-
-                if (targetRow >= 0 && targetRow < mapRendering.getLevel().Length && yWallDetected != '#')
-                {
-                    playerRow = targetRow;
-                }
-
-                if (targetColumn >= 0 && targetColumn < mapRendering.getLevel()[playerRow].Length && xWallDetected != '#'){   
-                    
-                  playerColumn = targetColumn;
-                }
-
-
-            }
+            
+            playerMovment.Move();
+            
             Console.SetCursorPosition(0,mapRendering.getLevel().Length);
         }
     }
