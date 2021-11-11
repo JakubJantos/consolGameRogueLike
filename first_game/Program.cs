@@ -35,23 +35,20 @@ namespace first_game
 
             //calling the method from Map rendering class
             MapRendering mapRendering = new MapRendering();
-            mapRendering.mapRender();
+            mapRendering.MapRender(true);
 
             Console.ReadKey(true);
             Console.Clear();
 
-            foreach (String row in mapRendering.getLevel())
-            {
-                Console.WriteLine(row);
-            }
+            mapRendering.MapRender(false);
 
             int playerColumn = 3;
             int playerRow = 2;
-
+            String player = "@";
+            
             while (true)
             {
                 Console.SetCursorPosition(playerColumn, playerRow);
-                String player = "@";
                 Console.Write(player);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);

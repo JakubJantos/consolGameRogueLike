@@ -18,7 +18,7 @@ namespace first_game
             "#########"
         };
 
-        String[] scroll = 
+        static String[] scroll = 
         {
             "      _______________",
             " ()==(              (@==()",
@@ -28,34 +28,43 @@ namespace first_game
             " ()==(               (@==()",
             "      '--------------'"
         };
-        public void mapRender()
+        int halfLenghtOfScroll = scroll.Length / 2+1; // getting half of scroll array and add it to variable
+        int mapRowsPositioning;
+        public void MapRender(bool levelOrMap)
         {
-            int halfLenghtOfScroll = scroll.Length / 2+1; // getting half of scroll array and add it to variable
-
-            //loop to print out first half of scroll graphics
-            for (int i = 0; i < halfLenghtOfScroll ; i++)
+            if (levelOrMap)
             {
-                Console.WriteLine($"{scroll[i]}");
-            }
-
-            int mapRowsPositioning = Console.CursorTop;//getting the value of position of cursor in console
-
-            //printing a map
-            foreach (String row in level)
-            {
-                Console.SetCursorPosition(0, mapRowsPositioning);
-                Console.WriteLine($"        |  {row}  |");
-                
-                // printing a down half of scroll graphics    
-                for (int i = halfLenghtOfScroll; i < scroll.Length ; i++)
+                //loop to print out first half of scroll graphics
+                for (int i = 0; i < halfLenghtOfScroll ; i++)
                 {
-                    Console.WriteLine(scroll[i]);
+                    Console.WriteLine($"{scroll[i]}");
                 }
-                mapRowsPositioning++; // increasing a console cursor to make down part of scroll always visible 
-                Thread.Sleep(400); //sleep for a while to get cool effect of rolling out a scroll
-            }
-        }
+                
+                mapRowsPositioning = Console.CursorTop;//getting the value of position of cursor in console     
 
+                foreach (String row in level)
+                {
+                    Console.SetCursorPosition(0, mapRowsPositioning);
+                    Console.WriteLine($"        |  {row}  |");
+                
+                    // printing a down half of scroll graphics    
+                    for (int i = halfLenghtOfScroll; i < scroll.Length ; i++)
+                    {
+                        Console.WriteLine(scroll[i]);
+                    }
+                    mapRowsPositioning++; // increasing a console cursor to make down part of scroll always visible 
+                    Thread.Sleep(400); //sleep for a while to get cool effect of rolling out a scroll
+                }   
+            }
+            else
+            {
+                foreach (String row in level)
+                {
+                    Console.WriteLine(row);
+                }
+            }
+            
+        }
         public String[] getLevel()
         {
             return level;
