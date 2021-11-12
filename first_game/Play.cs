@@ -6,9 +6,6 @@ namespace first_game
     {
         public void StartGame()
         {
-            
-            
-            
             Dialogs dialogs = new Dialogs();
             dialogs.StartingDialogs();
 
@@ -17,6 +14,9 @@ namespace first_game
 
             MapRendering mapRendering = new MapRendering();
             mapRendering.MapRender(false);
+
+            Player player = new Player();
+            player.DisplayStats();
 
             PlayerMovment playerMovment = new PlayerMovment();
             playerMovment.Move();

@@ -14,6 +14,7 @@ namespace first_game
             Play play = new Play();
             Console.WriteLine("P = play");
             Console.WriteLine("M = Map");
+            Console.WriteLine("C = Controls");
             Console.WriteLine("X = Exit");
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.P)
@@ -29,9 +30,17 @@ namespace first_game
                 Console.Clear();
                 PrintMenu();
             }
+            else if (keyInfo.Key == ConsoleKey.C)
+            {
+                PrintControls();
+            }
             else if (keyInfo.Key == ConsoleKey.X)
             {
                 Console.Clear();
+            }
+            else
+            {
+                PrintMenu();
             }
 
         }
@@ -42,6 +51,7 @@ namespace first_game
             Console.Clear();
             Console.WriteLine("M = Map");
             Console.WriteLine("P = Play");
+            Console.WriteLine("E = Eq");
             
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.M)
@@ -50,10 +60,54 @@ namespace first_game
                 mapRendering.MapRender(true);
                 Console.ReadKey(true);
                 InGameMenu();
-            }else if (keyInfo.Key == ConsoleKey.P)
+            }
+            else if (keyInfo.Key == ConsoleKey.P)
             {
                 Console.Clear();
             }
+            else if (keyInfo.Key == ConsoleKey.E)
+            {
+                printeq();
+            }
+        }
+
+        void printeq()
+        {
+            Console.Clear();
+            Console.WriteLine("eq in not implemented jet");
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            if (keyInfo.Key == ConsoleKey.X)
+            {
+                Console.Clear();
+            }
+            else
+            {
+                printeq();
+            } 
+        }
+
+        void PrintControls()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Up arrow = move up" +
+                              "\nDown arrow = move down" +
+                              "\nLeft arrow = move left" +
+                              "\nRight arrow = move right" +
+                              "\nE = open equipment" +
+                              "\nSpace = atak" +
+                              "\nX = close / go back");
+            Console.ResetColor();
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            if (keyInfo.Key == ConsoleKey.X)
+            {
+                PrintMenu();    
+            }
+            else
+            {
+                PrintControls();
+            }
+            
         }
     }
 }

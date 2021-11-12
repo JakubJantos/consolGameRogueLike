@@ -21,5 +21,10 @@ namespace first_game
             }
             Console.ResetColor();
         }
+
+        public String getOrigin()
+        {
+            return origin;
+        }
     }
 }
