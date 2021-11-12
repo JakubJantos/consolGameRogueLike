@@ -7,25 +7,30 @@ namespace first_game
         int playerColumn = 3;
         int playerRow = 2;
         String player = "@";
+        char curentCel;
+        int targetColumn;
+        int targetRow;
+        char xWallDetected;
+        char yWallDetected;
         
         public void Move()
         {
             MapRendering mapRendering = new MapRendering();
 
-            String[] lvl = mapRendering.getLevel(); 
-            char curentCel = lvl[playerRow][playerColumn];
-            int targetColumn = playerColumn;
-            int targetRow = playerRow;
-            char xWallDetected = lvl[playerRow][targetColumn];
-            char yWallDetected = lvl[targetRow][playerColumn];
+            String[] lvl = mapRendering.getLevel();
             
             while (true)
             {
                 Display(playerColumn,playerRow,player);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                
+                curentCel = lvl[playerRow][playerColumn];
 
                 Display(playerColumn,playerRow,curentCel.ToString());
+                
+                targetColumn = playerColumn;
+                targetRow = playerRow;
 
                 if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
@@ -46,8 +51,12 @@ namespace first_game
                 }
                 else
                 {
+                    Console.Clear();
                     break;
                 }
+                
+                xWallDetected = lvl[playerRow][targetColumn];
+                yWallDetected = lvl[targetRow][playerColumn];
                 
                 if (targetRow >= 0 && targetRow < lvl.Length && yWallDetected != '#')
                 {
@@ -62,10 +71,10 @@ namespace first_game
             }
         }//move
 
-        public void Display(int yAxis, int xAxis, String chero)
+        public void Display(int yAxis, int xAxis, String txt)
         {
             Console.SetCursorPosition(yAxis, xAxis);
-            Console.Write(chero);
+            Console.Write(txt);
         }
         
     }//class
