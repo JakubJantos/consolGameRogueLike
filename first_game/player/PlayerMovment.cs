@@ -4,50 +4,47 @@ namespace first_game
 {
     public class PlayerMovment
     {
-        int playerColumn = 3;
-        int playerRow = 2;
-        String player = "@";
         char curentCel;
         int targetColumn;
         int targetRow;
         char xWallDetected;
         char yWallDetected;
         
+        String[] lvl = MapRendering.getLevel();
+        
+        Player player = new Player(7,6, "@");
+        
         public void Move()
         {
-            MapRendering mapRendering = new MapRendering();
-
-            String[] lvl = mapRendering.getLevel();
-            
             while (true)
             {
-                Display(playerColumn,playerRow,player);
+                Display(player.XAxis,player.YAxis,player.Avatar);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 
-                curentCel = lvl[playerRow][playerColumn];
+                curentCel = lvl[player.YAxis][player.XAxis];
 
-                Display(playerColumn,playerRow,curentCel.ToString());
+                Display(player.XAxis,player.YAxis,curentCel.ToString());
                 
-                targetColumn = playerColumn;
-                targetRow = playerRow;
+                targetColumn = player.XAxis;
+                targetRow = player.YAxis;
 
                 if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    targetRow = playerRow - 1;
+                    targetRow = player.YAxis - 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    targetRow = playerRow + 1;
+                    targetRow = player.YAxis + 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    targetColumn = playerColumn + 1;
+                    targetColumn = player.XAxis + 1;
 
                 }
                 else if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                    targetColumn = playerColumn - 1;
+                    targetColumn = player.XAxis - 1;
                 }
                 else
                 {
@@ -55,25 +52,30 @@ namespace first_game
                     break;
                 }
                 
-                xWallDetected = lvl[playerRow][targetColumn];
-                yWallDetected = lvl[targetRow][playerColumn];
-                
-                if (targetRow >= 0 && targetRow < lvl.Length && yWallDetected != '#')
-                {
-                    playerRow = targetRow;
-                }
-
-                if (targetColumn >= 0 && targetColumn < lvl[playerRow].Length && xWallDetected != '#')
-                {
-
-                    playerColumn = targetColumn;
-                }
+                WallColision();
             }
         }//move
 
-        public void Display(int yAxis, int xAxis, String txt)
+        public void WallColision()
         {
-            Console.SetCursorPosition(yAxis, xAxis);
+            xWallDetected = lvl[player.YAxis][targetColumn];
+            yWallDetected = lvl[targetRow][player.XAxis];
+                
+            if (targetRow >= 0 && targetRow < lvl.Length && yWallDetected != '#')
+            {
+                player.YAxis = targetRow;
+            }
+
+            if (targetColumn >= 0 && targetColumn < lvl[player.YAxis].Length && xWallDetected != '#')
+            {
+
+                player.XAxis = targetColumn;
+            }    
+        }
+        
+        void Display(int XAxis, int YAxis, String txt)
+        {
+            Console.SetCursorPosition(XAxis, YAxis);
             Console.Write(txt);
         }
         

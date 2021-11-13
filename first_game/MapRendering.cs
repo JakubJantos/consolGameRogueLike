@@ -6,7 +6,7 @@ namespace first_game
     
     public class MapRendering
     {
-        String[] level = //proper map in string array maybe change it to a random generated maps
+        static String[] level = //proper map in string array maybe change it to a random generated maps
         {
             "#########",
             "#    #  #",
@@ -65,7 +65,7 @@ namespace first_game
             }
             
         }
-        public String[] getLevel()
+        public static String[] getLevel()
         {
             return level;
         }

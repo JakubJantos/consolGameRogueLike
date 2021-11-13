@@ -69,12 +69,16 @@ namespace first_game
             {
                 printeq();
             }
+            else
+            {
+                InGameMenu();
+            }
         }
 
         void printeq()
         {
             Console.Clear();
-            Console.WriteLine("eq in not implemented jet");
+            Console.WriteLine("eq is not implemented jet");
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.X)
             {

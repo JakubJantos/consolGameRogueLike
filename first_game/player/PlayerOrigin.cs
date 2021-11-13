@@ -5,7 +5,7 @@ namespace first_game
     public class PlayerOrigin
     {
         //getting the player input and assign it to the variable
-        String origin = Console.ReadLine();
+        static String origin = Console.ReadLine();
 
         public void Origins()
         {
@@ -22,7 +22,7 @@ namespace first_game
             Console.ResetColor();
         }
 
-        public String getOrigin()
+        public static String getOrigin()
         {
             return origin;
         }

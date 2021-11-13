@@ -18,7 +18,7 @@ namespace first_game
             playersName.names();
 
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"\nTel me '{playersName.getName()}' from where are you cumming to us?");
+            Console.WriteLine($"\nTel me '{PlayersName.getName()}' from where are you cumming to us?");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nwrite yours origin: ");
             Console.ResetColor();

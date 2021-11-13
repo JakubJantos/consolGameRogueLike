@@ -9,7 +9,7 @@ namespace first_game
 
         //public static String nameStartingWhywUpper = char.ToUpper(name[1]) + name.Substring(1).ToLower();
 
-        String getNameWhywUpper()
+        static String getNameWhywUpper()
         {
             if (!String.IsNullOrEmpty(name))
             {
@@ -41,7 +41,7 @@ namespace first_game
             Console.ResetColor();
         }
 
-        public string getName()
+        public static string getName()
         {
             return getNameWhywUpper();
         }
