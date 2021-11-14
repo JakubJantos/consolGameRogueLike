@@ -6,8 +6,6 @@ namespace first_game
 {
     public class Player
     {
-        
-
         String name;
         String origin;
         int xAxis;
@@ -15,11 +13,13 @@ namespace first_game
         String avatar;
         int HP;
         int armor;
+        bool isDet;
         List<Items> eq = new List<Items>();
-
-
-        public Player(){}
         
+        public Player()
+        {
+        }
+
         public Player(string name, string origin, int hp, int armor)
         {
             this.name = name;
@@ -27,23 +27,26 @@ namespace first_game
             HP = hp;
             this.armor = armor;
         }
-        
+
         public Player(int xAxis, int yAxis, string avatar)
         {
             this.xAxis = xAxis;
             this.yAxis = yAxis;
             this.avatar = avatar;
         }
-        
 
         public void DisplayStats()
         {
+            Player player = new Player(PlayersName.getName(),PlayerOrigin.getOrigin(),100,0);
+            
             int lengtOfMap= MapRendering.getLevel()[0].Length;
              
              Console.SetCursorPosition(lengtOfMap + 2,1);
-             Console.WriteLine($"HP = {HP}");
+             Console.WriteLine($"Name = {player.Name}");
              Console.SetCursorPosition(lengtOfMap + 2,2);
-             Console.WriteLine($"Armor = {armor}");
+             Console.WriteLine($"Hp = {player.Hp}");
+             Console.SetCursorPosition(lengtOfMap + 2, 3);
+             Console.WriteLine($"Armor = {player.Armor}");
         }
         
         public string Name
@@ -86,6 +89,12 @@ namespace first_game
         {
             get => armor;
             set => armor = value;
+        }
+
+        public bool IsDet
+        {
+            get => isDet;
+            set => isDet = value;
         }
 
         public List<Items> Eq

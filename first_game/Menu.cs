@@ -4,19 +4,21 @@ namespace first_game
 {
     public class Menu
     {
-        
         MapRendering mapRendering = new MapRendering();
 
         public void PrintMenu()
         {
-            
             Console.Clear();
+         
             Play play = new Play();
+            
             Console.WriteLine("P = play");
             Console.WriteLine("M = Map");
             Console.WriteLine("C = Controls");
             Console.WriteLine("X = Exit");
+            
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            
             if (keyInfo.Key == ConsoleKey.P)
             {
                 Console.Clear();
@@ -42,18 +44,16 @@ namespace first_game
             {
                 PrintMenu();
             }
-
         }
-
         public void InGameMenu()
         {
-            
             Console.Clear();
             Console.WriteLine("M = Map");
             Console.WriteLine("P = Play");
             Console.WriteLine("E = Eq");
             
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            
             if (keyInfo.Key == ConsoleKey.M)
             {
                 Console.Clear();
@@ -74,7 +74,6 @@ namespace first_game
                 InGameMenu();
             }
         }
-
         void printeq()
         {
             Console.Clear();
@@ -89,7 +88,6 @@ namespace first_game
                 printeq();
             } 
         }
-
         void PrintControls()
         {
             Console.Clear();
@@ -102,7 +100,9 @@ namespace first_game
                               "\nSpace = atak" +
                               "\nX = close / go back");
             Console.ResetColor();
+            
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            
             if (keyInfo.Key == ConsoleKey.X)
             {
                 PrintMenu();    
@@ -111,7 +111,6 @@ namespace first_game
             {
                 PrintControls();
             }
-            
         }
     }
 }

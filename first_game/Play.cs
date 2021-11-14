@@ -17,9 +17,10 @@ namespace first_game
 
             Player player = new Player();
             player.DisplayStats();
-
+            
             PlayerMovment playerMovment = new PlayerMovment();
             playerMovment.Move();
+
         }
     }
 }

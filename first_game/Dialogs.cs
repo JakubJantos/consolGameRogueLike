@@ -7,8 +7,10 @@ namespace first_game
         public void StartingDialogs()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\nHello Stranger, welcome to ROU SHA!\n" +
-                              "My name is (NPC name) and Who are you?");
+            Console.WriteLine("############################################" +
+                              "\n#  Hello Stranger, welcome to ROU SHA!     #" +
+                              "\n#  My name is (NPC name) and Who are you?  #" +
+                              "\n############################################");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nwrite your name here: ");
             Console.ResetColor();
@@ -19,6 +21,7 @@ namespace first_game
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"\nTel me '{PlayersName.getName()}' from where are you cumming to us?");
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nwrite yours origin: ");
             Console.ResetColor();

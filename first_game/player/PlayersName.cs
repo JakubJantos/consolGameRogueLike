@@ -7,8 +7,6 @@ namespace first_game
         // getting a player input and assign it to the variable 
         static String name = Console.ReadLine();
 
-        //public static String nameStartingWhywUpper = char.ToUpper(name[1]) + name.Substring(1).ToLower();
-
         static String getNameWhywUpper()
         {
             if (!String.IsNullOrEmpty(name))
@@ -20,7 +18,6 @@ namespace first_game
             {
                 return " ";
             }
-             
         }
         
         public void names()
@@ -29,7 +26,8 @@ namespace first_game
             if (name.ToLower() == "stranger")// checking if player insert name as e "stranger" then print a proper message
             {
                 Console.WriteLine($"\nHA!! I know it, so welcome '{getNameWhywUpper()}'.");
-            }else if (String.IsNullOrWhiteSpace(name))// checking if player dont insert any name then print a proper message
+            }
+            else if (String.IsNullOrWhiteSpace(name))// checking if player dont insert any name then print a proper message
             {
                 name = "Stranger";
                 Console.WriteLine($"\nSo I'll col you '{name}' then.");

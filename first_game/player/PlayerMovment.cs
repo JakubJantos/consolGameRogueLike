@@ -16,14 +16,16 @@ namespace first_game
         
         public void Move()
         {
-            while (true)
+            player.IsDet = true;
+            while (player.IsDet.Equals(true))
             {
+                //display a player
                 Display(player.XAxis,player.YAxis,player.Avatar);
-
+                //w8 for player pres key
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                
+                //geting current position of player and adding that to variable 
                 curentCel = lvl[player.YAxis][player.XAxis];
-
+                //replacing place after player move whyw proper sign
                 Display(player.XAxis,player.YAxis,curentCel.ToString());
                 
                 targetColumn = player.XAxis;
@@ -46,13 +48,21 @@ namespace first_game
                 {
                     targetColumn = player.XAxis - 1;
                 }
-                else
+                else if (keyInfo.Key == ConsoleKey.X)
                 {
                     Console.Clear();
                     break;
                 }
                 
+                Items.DisplayItem();
                 WallColision();
+                
+                if (targetColumn == 7 && targetRow == 1)
+                {
+                    Console.Clear();
+                    player.IsDet = false;
+                    Console.WriteLine("GAME OWER!");
+                }
             }
         }//move
 
@@ -73,7 +83,7 @@ namespace first_game
             }    
         }
         
-        void Display(int XAxis, int YAxis, String txt)
+        public static void Display(int XAxis, int YAxis, String txt)
         {
             Console.SetCursorPosition(XAxis, YAxis);
             Console.Write(txt);
